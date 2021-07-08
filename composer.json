@@ -1,0 +1,25 @@
+{
+    "name": "dsprog/projetos-manager",
+    "description": "Criando um sistema de base para projetos ERP",
+    "authors": [
+        {
+            "name": "Daniel Henrique dos Santos Oliveira",
+            "email": "dsprog@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/http-foundation": "^5.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dsprog\\Framework\\": "src",
+            "App\\": "app"
+        }
+    },
+    "scripts": {
+        "server": "php -S localhost:9000 -t public"
+    },
+    "config":{
+        "process-timeout": 0
+    }
+}
