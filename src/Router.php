@@ -7,7 +7,7 @@ class Router
 {
     private $routes = [];
 
-    public function add(string $method,string $pattern, $callback)
+    public function add(string $method, string $pattern, $callback)
     {
         $method = strtolower($method);
         $pattern = '/^' . str_replace('/', '\/' , $pattern) . '$/';
@@ -32,17 +32,12 @@ class Router
         if(empty($this->routes[$method])){
             throw new HttpException('Page not found', 404);
         }
-
+        
         foreach($this->routes[$method] as $route => $action){
             if (preg_match($route, $url, $params)){
                 return $action($params);
             }
-            throw new HttpException('Page not found', 404);
         }
-
-        /*if(array_key_exists($route, $this->routes)){
-            return $this->routes[$route]();
-        }*/
-        throw new HttpException('Page not found', 404);        
+        throw new HttpException('Page not found', 404);
     }
 }
