@@ -12,7 +12,13 @@ require __DIR__ . '/config/routes.php';
 try{
     $result = $router->run();
     $response = new Response();
-    $response($result['action'], $result['params']);
+    $params = [
+        'container' => $container,
+        'params' => $result['params']
+    ];
+
+    $response($result['action'], $params);
+
 } catch(\Dsprog\Framework\Exceptions\HttpException $e){
     echo json_encode(['error' => $e->getMessage()]);
 }

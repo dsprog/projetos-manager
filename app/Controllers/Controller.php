@@ -4,8 +4,7 @@ namespace App\Controllers;
 
 class Controller
 {
-    public function __construct($container)
+    public function __construct()
     {
-        $this->container = $container;
     }
 }

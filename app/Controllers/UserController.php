@@ -6,8 +6,8 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    public function show(int $id)
+    public function show($container, $params)
     {
-        return (new User($this->container))->get($id);
+        return (new User($container))->get($params[1]);
     }
 }

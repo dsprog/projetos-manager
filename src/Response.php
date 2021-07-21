@@ -6,6 +6,12 @@ class Response
 {
     public function __invoke($action, $params)
     {
-        echo $action($params);        
+        if (is_string($action)) {
+            $action = explode('::', $action);
+            $classController = '\\App\\Controllers\\' . $action[0];
+            $action[0] = new $classController;
+        }
+        $response = call_user_func_array($action, $params);
+        echo $response;        
     }
 }
