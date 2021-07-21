@@ -8,6 +8,7 @@ class UserController extends Controller
 {
     public function show($container, $params)
     {
-        return (new User($container))->get($params[1]);
+        $user = (new User($container))->get($params[1]);
+        return 'Usuário <strong>'.$user['name'].'</strong> e o e-mail é '.$user['email'].'!';
     }
 }

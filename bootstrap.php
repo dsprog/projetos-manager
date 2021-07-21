@@ -11,6 +11,7 @@ require __DIR__ . '/config/routes.php';
 
 try{
     $result = $router->run();
+    
     $response = new Response();
     $params = [
         'container' => $container,

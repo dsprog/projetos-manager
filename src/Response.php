@@ -11,7 +11,9 @@ class Response
             $classController = '\\App\\Controllers\\' . $action[0];
             $action[0] = new $classController;
         }
-        $response = call_user_func_array($action, $params);
-        echo $response;        
+        
+        //echo '<pre><code>';
+        echo call_user_func_array($action, $params);
+        //echo '</code></pre>';
     }
 }
