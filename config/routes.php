@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\User;
+use App\Controllers\UserController;
 
 $router->add('GET', '/', function() use ($container) {
     var_dump($container['db']);
@@ -12,7 +12,7 @@ $router->add('GET', '/contato', function(){
 });
 
 $router->add('GET', '/usuario/(\d+)', function($params) use ($container){
-    $user = (new User($container))->get($params[1]);
+    $user = (new UserController($container))->show($params[1]);
     var_dump($user); exit;
     return 'Contato';
 });
