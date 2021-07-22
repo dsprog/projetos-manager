@@ -9,7 +9,8 @@
     ],
     "require": {
         "symfony/http-foundation": "^5.3",
-        "pimple/pimple": "~3.0"
+        "pimple/pimple": "~3.0",
+        "laminas/laminas-eventmanager": "^3.3"
     },
     "autoload": {
         "psr-4": {

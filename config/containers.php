@@ -16,3 +16,7 @@ $container['db'] = function() {
 
     return $pdo;
 };
+
+$container['events'] = function() {
+    return new Laminas\EventManager\EventManager;
+};
