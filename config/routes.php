@@ -1,7 +1,5 @@
 <?php
 
-use App\Controllers\UserController;
-
 $router->add('GET', '/', function() use ($container) {
     var_dump($container['db']);
     return 'HOME';
