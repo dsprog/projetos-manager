@@ -5,23 +5,30 @@ namespace Dsprog\Framework;
 use Dsprog\Framework\Router;
 use Dsprog\Framework\Response;
 use Dsprog\Framework\Exceptions\HttpException;
+use Dsprog\Framework\Modules\ModuleRegister;
 use Pimple\Container;
 
 class App
 {
+    private $composer;
+    private $modules;
     private $container;
     private $middlewares = [
         'before'=>[],
         'after'=>[]
     ];
 
-    public function __construct(Container $container = null)
+    public function __construct($composer, array $modules, Container $container = null)
     {
         $this->container = $container;
+        $this->composer = $composer;
+
         if ($this->container === null)
         {
-            $this->container = new Pimple;
+            $this->container = new Container;
         }
+
+        $this->loadRegistry($modules);
     }
 
     public function addMiddleware($on, $callback)
@@ -63,6 +70,25 @@ class App
             };
         }
         return $this->container['HttpErrorHandler'];
+    }
+
+    public function getContainer()
+    {
+        return $this->container;
+    }
+
+    private function loadRegistry($modules)
+    {
+        $registry = new ModuleRegister;
+        $registry->setApp($this);
+        $registry->setComposer($this->composer);
+
+        foreach($modules as $file => $module){
+            require $file;
+            $registry->add(new $module);
+        }
+
+        $registry->run();
     }
 
     public function run()

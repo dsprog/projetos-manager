@@ -1,8 +1,5 @@
 <?php
 
-use Pimple\Container;
-
-$container = new Container();
 $container['db'] = function() {
     $dns = 'mysql:host=localhost;dbname=pp_project_manager';
     $username = 'root';
