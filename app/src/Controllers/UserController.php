@@ -11,14 +11,14 @@ class UserController extends Controller
         $id = $request->attributes->get(1);
         $user = new User($container);
 
-        return $user->create(['name'=>'Jose', 'email'=>'jose@test.com']);exit;
+        // return $user->create(['name'=>'Jose', 'email'=>'jose@test.com']);exit;
 
 
 
-        //$r = $user->get($id);
+        $r = $user->get($id);
 
 
-        // return $user;
-        //return 'Usuário <strong>'.$r['name'].'</strong> e o e-mail é '.$r['email'].'!';
+        //return $user;
+        return 'Usuário <strong>'.$r['name'].'</strong> e o e-mail é '.$r['email'].'!';
     }
 }

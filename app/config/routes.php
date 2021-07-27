@@ -15,7 +15,7 @@ $router->add('GET', '/usuario/(\d+)', function($params) use ($container){
     return 'Contato';
 });
 */
-$router->add('GET', '/usuario/(\d+)', 'UserController::show');
+$router->add('GET', '/usuario/(\d+)', '\\App\\Controllers\\UserController::show');
 
 $router->add('GET', '/projects/(\d+)', function ($params) {
     return 'estamos listando o projeto de id: ' . $params[1];
