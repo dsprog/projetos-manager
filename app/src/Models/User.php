@@ -2,29 +2,19 @@
 
 namespace App\Models;
 
-use Pimple\Container;
+use Dsprog\Framework\Model;
 
-class User
+class User extends Model
 {
-    private $db, $events;
-    
-    public function __construct(Container $container)
+    /*
+    public function setPassword($password)
     {
-        $this->db = $container['db'];
-        $this->events = $container['events'];
-    }
-    public function get(int $id)
-    {
-        $stmt = $this->db->prepare('SELECT * FROM users WHERE id=?');
-        $stmt->execute([$id]);
-
-        return $stmt->fetch(\PDO::FETCH_ASSOC);
+        return password_hash($password, \PASSWORD_DEFAULT);
     }
 
-    public function create(array $data)
+    public function getByEmail($email)
     {
-        $this->events->trigger('creating.users', null, $data);
-        // inserir no banco de dados
-        $this->events->trigger('created.users', null, $data);
+        return parent::get(['email' => $email]);
     }
+    */
 }
