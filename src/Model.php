@@ -3,7 +3,7 @@
 namespace Dsprog\Framework;
 
 use Pimple\Container;
-use SON\Framework\QueryBuilder;
+use Dsprog\Framework\QueryBuilder;
 
 abstract class Model
 {

@@ -3,22 +3,12 @@
 namespace App\Controllers;
 
 use App\Models\User;
+use Dsprog\Framework\CrudController;
 
-class UserController extends Controller
+class UserController extends CrudController
 {
-    public function show($container, $request)
+    protected function getModel(): string
     {
-        $id = $request->attributes->get(1);
-        $user = new User($container);
-
-        // return $user->create(['name'=>'Jose', 'email'=>'jose@test.com']);exit;
-
-
-
-        $r = $user->get($id);
-
-
-        //return $user;
-        return 'Usuário <strong>'.$r['name'].'</strong> e o e-mail é '.$r['email'].'!';
+        return 'users_model';
     }
 }

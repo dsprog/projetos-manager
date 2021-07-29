@@ -17,3 +17,7 @@ $container['db'] = function() {
 $container['events'] = function() {
     return new Laminas\EventManager\EventManager;
 };
+
+$container['users_model'] = function($c) {
+    return new \App\Models\Users($c);
+};

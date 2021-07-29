@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Dsprog\Framework\Model;
 
-class User extends Model
+class Users extends Model
 {
     /*
     public function setPassword($password)
