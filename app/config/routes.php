@@ -1,8 +1,7 @@
 <?php
 
 $router->add('GET', '/', function() use ($container) {
-    var_dump($container['db']);
-    return 'HOME';
+    return file_get_contents(__DIR__ . '/../../template/index.html');
 });
 
 $router->add('GET', '/contato', function(){
