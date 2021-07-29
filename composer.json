@@ -15,7 +15,10 @@
     "autoload": {
         "psr-4": {
             "Dsprog\\Framework\\": "src"
-        }
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "scripts": {
         "server": "php -S localhost:9000 -t public"
